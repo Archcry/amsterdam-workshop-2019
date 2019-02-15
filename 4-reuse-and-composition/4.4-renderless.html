@@ -38,12 +38,10 @@ const FetchTodo = {
   props: ['id'],
   components: { Fetch },
   template: `
-    <fetch :id="id">
-      <div slot-scope="{ status, data, error }">
-        <pre v-if="status === 'done'">{{ data }}</pre>
-        <div v-else="status === 'pending'">loading...</div>
-        <div v-else>{{ error }}</div>
-      </div>
+    <fetch :id="id" v-slot="{ status, data, error }">
+      <pre v-if="status === 'done'">{{ data }}</pre>
+      <div v-else="status === 'pending'">loading...</div>
+      <div v-else>{{ error }}</div>
     </fetch>
   `
 }
